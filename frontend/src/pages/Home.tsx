@@ -39,14 +39,31 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="home">
-      <section className="status-card" aria-labelledby="page-title">
-        <p className="eyebrow">React + FastAPI starter</p>
-        <h1 id="page-title">Backend connection</h1>
+    <main className="grid min-h-screen place-items-center p-6">
+      <section
+        className="w-full max-w-[560px] rounded-2xl border border-slate-200 bg-white p-10 shadow-[0_16px_40px_rgb(15_23_42_/_8%)]"
+        aria-labelledby="page-title"
+      >
+        <p className="mb-2.5 text-xs font-bold tracking-[0.08em] text-blue-600 uppercase">
+          React + FastAPI starter
+        </p>
+        <h1
+          className="mb-6 text-[clamp(1.8rem,5vw,2.4rem)] font-bold"
+          id="page-title"
+        >
+          Backend connection
+        </h1>
         {isLoading && <p role="status">Connecting to the backend…</p>}
-        {message && <p className="success-message">{message}</p>}
+        {message && (
+          <p className="m-0 rounded-[10px] bg-green-50 px-4 py-3.5 leading-6 text-green-800">
+            {message}
+          </p>
+        )}
         {error && (
-          <p className="error-message" role="alert">
+          <p
+            className="m-0 rounded-[10px] bg-red-50 px-4 py-3.5 leading-6 text-red-800"
+            role="alert"
+          >
             Could not connect to the backend: {error}
           </p>
         )}
